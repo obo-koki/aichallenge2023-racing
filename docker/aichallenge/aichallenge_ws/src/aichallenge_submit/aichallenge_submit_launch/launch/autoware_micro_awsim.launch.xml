@@ -218,6 +218,17 @@
 
           </node_container>
         </group> <!-- behavior_planning -->
+
+        <group> <!-- Simple Pub Sub -->
+          <!--node pkg="cpp_pubsub" exec="talker"/>
+          <node pkg="cpp_pubsub" exec="listener"/-->
+        </group> <!-- Simple Pub Sub -->
+
+        <!-- Path Subscriber -->
+        <group>
+          <node pkg="sub_autoware_msg" exec="path_subscriber"/>
+        </group> <!-- Path Subscriber -->
+
       </group> <!-- lane_driving -->
 
       <!-- Customizable -->
@@ -225,6 +236,9 @@
         <remap from="input" to="/planning/scenario_planning/lane_driving/behavior_planning/path_with_lane_id"/>
         <remap from="output" to="/planning/scenario_planning/trajectory"/>
       </node>
+
+      <!-- Path Subscriber -->
+      <node pkg="sub_autoware_msg" exec="trajectory_subscriber"/>
 
     </group>
   </group>
